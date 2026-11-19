@@ -23,7 +23,6 @@ BIO = [
     "Software developer & student at Süleyman Demirel University.",
     "Java · Python · TypeScript — full-stack apps and AI projects.",
 ]
-STATUS = "Currently building CoreSport"
 LOCATION = "Türkiye"
 LINKEDIN = "https://www.linkedin.com/in/melik-kutlay-atilla"
 FEATURED = [  # name, fallback description, fallback language
@@ -36,9 +35,11 @@ STACK = ["Java", "Python", "TypeScript", "JavaScript", "Node.js", "Express.js", 
          "Spring", "MySQL", "MongoDB", "NumPy", "Pandas", "JWT"]
 # ───────────────────────────────────────────────────────────
 
-PAPER, INK, MUTED, LINE = "#F5F2EA", "#17171A", "#6B6A66", "#D9D4C7"
-BLUE, RED, YELLOW = "#2D5BFF", "#E5484D", "#F4B400"
-GRAPH = ["#E7E2D6", "#C9D4FF", "#8FA7FF", "#4F73FF", "#1E3BD6"]
+PAPER, INK, MUTED, LINE, DEEP = "#131316", "#ECE9E2", "#8A8882", "#2B2B31", "#0A0A0C"
+BLUE, RED, YELLOW = "#4A72FF", "#E5484D", "#F2B11C"
+TILE_BLUE, TILE_RED, TILE_YELLOW = "#1F3FC4", "#A8282E", "#C98A00"
+BAR, CHIP = "#4A4A53", "#1C1C21"
+GRAPH = ["#1F1F25", "#1C2C66", "#2743A8", "#3B63EB", "#86A2FF"]
 LANG = {"TypeScript": "#3178C6", "JavaScript": "#E9C600", "Java": "#B07219", "Python": "#3572A5",
         "MATLAB": "#E16737", "HTML": "#E34C26", "CSS": "#663399", "Jupyter Notebook": "#DA5B0B"}
 STATIC = os.environ.get("STATIC") == "1"
@@ -114,7 +115,7 @@ def svg(w, h, body, css="", fonts=(), label=""):
 
 
 def frame(w, h, fill=PAPER):
-    return f'<rect x="1" y="1" width="{w-2}" height="{h-2}" rx="16" fill="{fill}" stroke="{INK}" stroke-width="1.5"/>'
+    return f'<rect x="1" y="1" width="{w-2}" height="{h-2}" rx="16" fill="{fill}" stroke="{LINE}" stroke-width="1.5"/>'
 
 
 def d(s):
@@ -257,13 +258,13 @@ def hero(photo):
     sh = PS / strips
     for i in range(strips):
         body.append(f'<rect class="strip" style="{d(0.15 + i*0.035)}" x="{P}" y="{P + i*sh - 0.5:.2f}" '
-                    f'width="{PS}" height="{sh + 1:.2f}" fill="{INK}"/>')
+                    f'width="{PS}" height="{sh + 1:.2f}" fill="{DEEP}"/>')
     body.append("</g>")
-    body.append(f'<rect x="{P}" y="{P}" width="{PS}" height="{PS}" rx="12" fill="none" stroke="{INK}" stroke-width="1.5"/>')
+    body.append(f'<rect x="{P}" y="{P}" width="{PS}" height="{PS}" rx="12" fill="none" stroke="{LINE}" stroke-width="1.5"/>')
     # sticker
     body.append(f'<g class="pop" style="{d(1.2)}"><g transform="rotate(-8 {P+PS-18} {P+PS-14})">'
-                f'<rect x="{P+PS-64}" y="{P+PS-30}" width="92" height="30" rx="15" fill="{YELLOW}" stroke="{INK}" stroke-width="1.5"/>'
-                f'<text x="{P+PS-18}" y="{P+PS-10}" text-anchor="middle" class="mono" font-size="12" font-weight="500" fill="{INK}">@{esc(USER.lower())}</text></g></g>')
+                f'<rect x="{P+PS-64}" y="{P+PS-30}" width="92" height="30" rx="15" fill="{YELLOW}" stroke="{DEEP}" stroke-width="1.5"/>'
+                f'<text x="{P+PS-18}" y="{P+PS-10}" text-anchor="middle" class="mono" font-size="12" font-weight="500" fill="{DEEP}">@{esc(USER.lower())}</text></g></g>')
 
     X = P + PS + 40
     body.append(f'<text class="mono rise" style="{d(0.2)}" x="{X}" y="74" font-size="12" letter-spacing="2.4" fill="{MUTED}">'
@@ -275,14 +276,8 @@ def hero(photo):
                 f'<g clip-path="url(#nm)"><rect class="shine" x="{X - 40}" y="140" width="90" height="70" fill="url(#sh)" transform="skewX(-18)"/></g></g>')
     for i, line in enumerate(BIO):
         body.append(f'<text class="sans rise" style="{d(0.7 + i*0.12)}" x="{X}" y="{232 + i*24}" font-size="15.5" fill="{INK}" fill-opacity=".78">{esc(line)}</text>')
-    # status pill
-    pw = text_width(STATUS, "sans-500", 13.5) + 46
-    lw = text_width(LOCATION, "mono-400", 12)
-    body.append(f'<g class="rise" style="{d(1.0)}">'
-                f'<rect x="{X}" y="279" width="{pw:.1f}" height="28" rx="14" fill="#fff" stroke="{INK}" stroke-width="1.2"/>'
-                f'<circle class="dot" cx="{X+17}" cy="293" r="4.5" fill="{BLUE}"/><circle cx="{X+17}" cy="293" r="4.5" fill="{BLUE}"/>'
-                f'<text class="sans" x="{X+31}" y="297.5" font-size="13.5" font-weight="500" fill="{INK}">{esc(STATUS)}</text>'
-                f'<text class="mono" x="{W-36-lw:.1f}" y="297.5" font-size="12" fill="{MUTED}">{esc(LOCATION)}</text></g>')
+    body.append(f'<text class="mono rise" style="{d(1.0)}" x="{X}" y="298" font-size="12" letter-spacing="1.6" fill="{MUTED}">'
+                f'<tspan fill="{BLUE}">●</tspan>  {esc(LOCATION.upper())}</text>')
     return svg(W, H, "".join(body), css, ("serif-400", "serif-400i", "sans-400", "sans-500", "mono-400", "mono-500"),
                f"{FIRST} {LAST}")
 
@@ -328,14 +323,14 @@ def months_card(s):
 """
     body = [frame(W, H)]
     body.append(f'<text class="serif rise" style="{d(1.4)}" x="{x0}" y="56" font-size="28" fill="{INK}">Month by month</text>')
-    body.append(f'<line x1="{x0}" y1="{base}" x2="{x1}" y2="{base}" stroke="{INK}" stroke-width="1.2"/>')
+    body.append(f'<line x1="{x0}" y1="{base}" x2="{x1}" y2="{base}" stroke="{MUTED}" stroke-width="1.2"/>')
     for i, (m, v) in enumerate(items):
         cx = x0 + slot * (i + 0.5)
         h = max(2, v / top * hmax) if v else 2
         isbest = m == best[0]
         delay = 1.6 + i * 0.06
         body.append(f'<rect class="bar" style="{d(delay)}" x="{cx - bw/2:.1f}" y="{base - h:.1f}" width="{bw:.1f}" height="{h:.1f}" rx="4" '
-                    f'fill="{BLUE if isbest else (INK if v else LINE)}" fill-opacity="{1 if isbest else .86}"><title>{v} in {m}</title></rect>')
+                    f'fill="{BLUE if isbest else (BAR if v else LINE)}"><title>{v} in {m}</title></rect>')
         lab = dt.date.fromisoformat(m + "-01").strftime("%b")
         body.append(f'<text class="mono fade" style="{d(1.6)}" x="{cx:.1f}" y="{base + 20}" text-anchor="middle" font-size="10.5" fill="{INK if isbest else MUTED}">{lab}</text>')
         if isbest:
@@ -376,7 +371,7 @@ def tile(idx, label, bg, fg, value=None, caption="", big=None, cta="", delay=2.4
     b = [f'<defs><clipPath id="t"><rect x="{M}" y="{M}" width="{W-2*M}" height="{H-2*M}" rx="18"/></clipPath>'
          f'<linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".8"/>'
          f'<stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>']
-    b.append(f'<g class="tile"><rect x="{M}" y="{M}" width="{W-2*M}" height="{H-2*M}" rx="18" fill="{bg}" stroke="{INK}" stroke-width="1.5"/>')
+    b.append(f'<g class="tile"><rect x="{M}" y="{M}" width="{W-2*M}" height="{H-2*M}" rx="18" fill="{bg}" stroke="{DEEP}" stroke-width="1.5"/>')
     b.append(f'<g clip-path="url(#t)"><circle class="ring" cx="{W-M-34}" cy="{M+34}" r="22" fill="none" stroke="{fg}" stroke-width="2"/>'
              f'<rect class="gl" x="{M-60}" y="{M-20}" width="80" height="{H+40}" fill="url(#g)" transform="skewX(-16)"/></g>')
     b.append(f'<text class="mono" x="{M+24}" y="{M+40}" font-size="12" letter-spacing="2" fill="{fg}" fill-opacity=".85">{idx:02d} / {label}</text>')
@@ -416,7 +411,7 @@ def wrap(text, key, size, width):
 
 def repo_card(i, name, desc, lang, stars, delay):
     W, H = 440, 190
-    accent = [BLUE, RED, YELLOW, INK][i % 4]
+    accent = [BLUE, RED, YELLOW, MUTED][i % 4]
     size = 34
     while text_width(name, "serif-400", size) > W - 110 and size > 20:
         size -= 1
@@ -428,13 +423,13 @@ def repo_card(i, name, desc, lang, stars, delay):
 """
     b = [f'<g class="card" style="{d(delay)}">{frame(W, H)}',
          f'<path d="M1 17 V17 a16 16 0 0 1 16 -16 H{W-17} a16 16 0 0 1 16 16 V17 Z" fill="{accent}"/>',
-         f'<line x1="1" y1="17" x2="{W-1}" y2="17" stroke="{INK}" stroke-width="1.5"/>',
+         f'<line x1="1" y1="17" x2="{W-1}" y2="17" stroke="{LINE}" stroke-width="1.5"/>',
          f'<text class="mono" x="26" y="48" font-size="11" letter-spacing="1.6" fill="{MUTED}">REPO / {i+1:02d}</text>',
          f'<text class="serif" x="26" y="88" font-size="{size}" fill="{INK}">{esc(name)}</text>',
          f'<g class="arrow"><text class="sans" x="{W-46}" y="52" font-size="20" font-weight="600" fill="{INK}">↗</text></g>']
     for k, line in enumerate(wrap(desc or "", "sans-400", 14, W - 52)):
         b.append(f'<text class="sans" x="26" y="{118 + k*20}" font-size="14" fill="{INK}" fill-opacity=".72">{esc(line)}</text>')
-    b.append(f'<circle cx="32" cy="{H-26}" r="5.5" fill="{LANG.get(lang, MUTED)}" stroke="{INK}" stroke-width=".8"/>'
+    b.append(f'<circle cx="32" cy="{H-26}" r="5.5" fill="{LANG.get(lang, MUTED)}" stroke="{DEEP}" stroke-width=".8"/>'
              f'<text class="mono" x="44" y="{H-22}" font-size="12" fill="{INK}">{esc(lang or "—")}</text>')
     if stars:
         st = f"★ {stars}"
@@ -461,7 +456,7 @@ def stack_card():
          f'<tspan class="cursor" fill="{BLUE}"> ▍</tspan></text>']
     colors = [BLUE, RED, YELLOW]
     for i, (name, cx, cy, w) in enumerate(chips):
-        b.append(f'<g class="pop" style="{d(3.8 + i*0.07)}"><rect x="{cx:.1f}" y="{cy}" width="{w:.1f}" height="{h}" rx="{h/2}" fill="#fff" stroke="{INK}" stroke-width="1.2"/>'
+        b.append(f'<g class="pop" style="{d(3.8 + i*0.07)}"><rect x="{cx:.1f}" y="{cy}" width="{w:.1f}" height="{h}" rx="{h/2}" fill="{CHIP}" stroke="{LINE}" stroke-width="1.2"/>'
                  f''
                  f'<text class="sans" x="{cx + w/2:.1f}" y="{cy + h/2 + 5}" text-anchor="middle" font-size="{fs}" font-weight="500" fill="{INK}">{esc(name)}</text></g>')
     return svg(W, H, "".join(b), css, ("serif-400", "sans-500"), "Tech stack: " + ", ".join(STACK))
@@ -478,11 +473,11 @@ def main():
         "hero.svg": hero(photo_data_uri()),
         "graph.svg": graph(contrib, s),
         "months.svg": months_card(s),
-        "build.svg": tile(1, "BUILD", BLUE, "#FFFFFF", value=profile.get("public_repos") or 28,
+        "build.svg": tile(1, "BUILD", TILE_BLUE, "#FFFFFF", value=profile.get("public_repos") or 28,
                           caption="public repositories", cta="See my projects", delay=2.4),
-        "ship.svg": tile(2, "SHIP", RED, "#FFFFFF", value=s["total"],
+        "ship.svg": tile(2, "SHIP", TILE_RED, "#FFFFFF", value=s["total"],
                          caption="contributions this year", cta="Follow on GitHub", delay=2.55),
-        "connect.svg": tile(3, "CONNECT", YELLOW, INK, big=["Let’s", "talk."],
+        "connect.svg": tile(3, "CONNECT", TILE_YELLOW, DEEP, big=["Let’s", "talk."],
                             caption="in/melik-kutlay-atilla", cta="Say hi on LinkedIn", delay=2.7),
         "stack.svg": stack_card(),
     }
