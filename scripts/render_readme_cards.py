@@ -24,6 +24,7 @@ BIO = [
     "Java · Python · TypeScript — full-stack apps and AI projects.",
 ]
 LOCATION = "Türkiye"
+PORTRAIT = "ascii"  # "ascii" uses assets/portrait.txt, "photo" embeds the picture itself
 LINKEDIN = "https://www.linkedin.com/in/melik-kutlay-atilla"
 FEATURED = [  # name, fallback description, fallback language
     ("CoreSport", "AI-powered athlete development platform.", "TypeScript"),
@@ -248,18 +249,41 @@ def hero(photo):
     body.append(f'<defs><clipPath id="ph"><rect x="{P}" y="{P}" width="{PS}" height="{PS}" rx="12"/></clipPath>'
                 f'<linearGradient id="sh" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/>'
                 f'<stop offset=".5" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>')
-    body.append(f'<g clip-path="url(#ph)">')
-    if photo:
-        body.append(f'<image href="{photo}" x="{P}" y="{P}" width="{PS}" height="{PS}" preserveAspectRatio="xMidYMid slice"/>')
+    ascii_rows = None
+    art = ASSETS / "portrait.txt"
+    if PORTRAIT == "ascii" and art.exists():
+        ascii_rows = art.read_text(encoding="utf-8").rstrip("\n").split("\n")
+    if ascii_rows:
+        # ASCII portrait that prints in row by row, like a slow terminal
+        cols = max(len(r) for r in ascii_rows)
+        n = len(ascii_rows)
+        pad = 10
+        cw = (PS - 2 * pad) / cols
+        lh = (PS - 2 * pad) / n
+        fs = cw / (text_width("M", "mono-400", 1) or 0.6)
+        body.append(f'<defs><linearGradient id="pg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{INK}"/>'
+                    f'<stop offset=".55" stop-color="{INK}"/><stop offset="1" stop-color="#8FA7FF"/></linearGradient></defs>')
+        body.append(f'<rect x="{P}" y="{P}" width="{PS}" height="{PS}" rx="12" fill="{DEEP}"/>')
+        body.append(f'<g class="mono" font-size="{fs:.2f}" fill="url(#pg)">')
+        for i, row in enumerate(ascii_rows):
+            if not row.strip():
+                continue
+            body.append(f'<text class="fade" style="{d(0.15 + i*0.018)};animation-duration:.25s" x="{P+pad}" y="{P + pad + (i+0.8)*lh:.2f}" '
+                        f'xml:space="preserve" textLength="{len(row)*cw:.2f}" lengthAdjust="spacingAndGlyphs">{esc(row)}</text>')
+        body.append("</g>")
     else:
-        body.append(f'<rect x="{P}" y="{P}" width="{PS}" height="{PS}" fill="{LINE}"/>'
-                    f'<circle cx="{P+PS/2}" cy="{P+PS*0.4}" r="{PS*0.17}" fill="{MUTED}"/>'
-                    f'<ellipse cx="{P+PS/2}" cy="{P+PS*0.98}" rx="{PS*0.36}" ry="{PS*0.3}" fill="{MUTED}"/>')
-    sh = PS / strips
-    for i in range(strips):
-        body.append(f'<rect class="strip" style="{d(0.15 + i*0.035)}" x="{P}" y="{P + i*sh - 0.5:.2f}" '
-                    f'width="{PS}" height="{sh + 1:.2f}" fill="{DEEP}"/>')
-    body.append("</g>")
+        body.append(f'<g clip-path="url(#ph)">')
+        if photo:
+            body.append(f'<image href="{photo}" x="{P}" y="{P}" width="{PS}" height="{PS}" preserveAspectRatio="xMidYMid slice"/>')
+        else:
+            body.append(f'<rect x="{P}" y="{P}" width="{PS}" height="{PS}" fill="{LINE}"/>'
+                        f'<circle cx="{P+PS/2}" cy="{P+PS*0.4}" r="{PS*0.17}" fill="{MUTED}"/>'
+                        f'<ellipse cx="{P+PS/2}" cy="{P+PS*0.98}" rx="{PS*0.36}" ry="{PS*0.3}" fill="{MUTED}"/>')
+        sh = PS / strips
+        for i in range(strips):
+            body.append(f'<rect class="strip" style="{d(0.15 + i*0.035)}" x="{P}" y="{P + i*sh - 0.5:.2f}" '
+                        f'width="{PS}" height="{sh + 1:.2f}" fill="{DEEP}"/>')
+        body.append("</g>")
     body.append(f'<rect x="{P}" y="{P}" width="{PS}" height="{PS}" rx="12" fill="none" stroke="{LINE}" stroke-width="1.5"/>')
     # sticker
     body.append(f'<g class="pop" style="{d(1.2)}"><g transform="rotate(-8 {P+PS-18} {P+PS-14})">'
