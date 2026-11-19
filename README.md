@@ -1,12 +1,30 @@
+<p align="center">
+  <a href="https://github.com/MelikKtly"><img src="./cards/hero.svg" width="100%" alt="Melik Kutlay Atilla — software developer and student at Süleyman Demirel University" /></a>
+</p>
 
-# 💻 Tech Stack:
-![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white) ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB) ![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens) ![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white) ![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white) ![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white) ![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white) ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
-# 📊 GitHub Stats:
-![](https://github-readme-stats.vercel.app/api?username=MelikKtly&theme=dark&hide_border=false&include_all_commits=false&count_private=false)<br/>
-![](https://nirzak-streak-stats.vercel.app/?user=MelikKtly&theme=dark&hide_border=false)<br/>
-![](https://github-readme-stats.vercel.app/api/top-langs/?username=MelikKtly&theme=dark&hide_border=false&include_all_commits=false&count_private=false&layout=compact)
+<p align="center">
+  <img src="./cards/graph.svg" width="100%" alt="Contribution graph" />
+</p>
 
----
-[![](https://visitcount.itsvg.in/api?id=MelikKtly&icon=1&color=0)](https://visitcount.itsvg.in)
+<p align="center">
+  <img src="./cards/months.svg" width="100%" alt="Contributions per month, streaks and busiest day" />
+</p>
 
-<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
+<p align="center">
+  <a href="https://github.com/MelikKtly?tab=repositories"><img src="./cards/build.svg" width="32.5%" alt="Build — public repositories" /></a>
+  <a href="https://github.com/MelikKtly"><img src="./cards/ship.svg" width="32.5%" alt="Ship — contributions this year" /></a>
+  <a href="https://www.linkedin.com/in/melik-kutlay-atilla"><img src="./cards/connect.svg" width="32.5%" alt="Connect on LinkedIn" /></a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/MelikKtly/CoreSport"><img src="./cards/repo-1.svg" width="49%" alt="CoreSport" /></a>
+  <a href="https://github.com/MelikKtly/MPF3"><img src="./cards/repo-2.svg" width="49%" alt="MPF3" /></a>
+  <a href="https://github.com/MelikKtly/Smart-Email-Writer-Assistant"><img src="./cards/repo-3.svg" width="49%" alt="Smart Email Writer Assistant" /></a>
+  <a href="https://github.com/MelikKtly/KurumsalAIAsistan"><img src="./cards/repo-4.svg" width="49%" alt="KurumsalAIAsistan" /></a>
+</p>
+
+<p align="center">
+  <img src="./cards/stack.svg" width="100%" alt="Java, Python, TypeScript, JavaScript, Node.js, Express.js, Next.js, Spring, MySQL, MongoDB, NumPy, Pandas, JWT" />
+</p>
+
+<!-- Cards are drawn by scripts/render_readme_cards.py and refreshed daily by .github/workflows/update-cards.yml -->

@@ -1,0 +1,2 @@
+Kendi fotoğrafını kullanmak için buraya photo.jpg (veya photo.png) koy.
+Yoksa GitHub profil fotoğrafın otomatik kullanılır.

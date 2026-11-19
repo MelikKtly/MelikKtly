@@ -1,0 +1,26 @@
+{
+ "public_repos": 28,
+ "followers": 4,
+ "repos": {
+  "CoreSport": {
+   "description": "CoreSport - AI Destekli Sporcu Gelişim Platformu",
+   "language": "TypeScript",
+   "stars": 0
+  },
+  "MPF3": {
+   "description": "My Fitness tracker website",
+   "language": "JavaScript",
+   "stars": 1
+  },
+  "Smart-Email-Writer-Assistant": {
+   "description": "This is an AI project designed to assist with writing emails.",
+   "language": "Java",
+   "stars": 1
+  },
+  "KurumsalAIAsistan": {
+   "description": null,
+   "language": "Python",
+   "stars": 0
+  }
+ }
+}
