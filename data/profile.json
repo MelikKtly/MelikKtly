@@ -2,25 +2,173 @@
  "public_repos": 28,
  "followers": 4,
  "repos": {
+  "AgentProject": {
+   "description": null,
+   "language": "Python",
+   "stars": 0,
+   "fork": false
+  },
+  "banking-app": {
+   "description": "Banking Application using Spring Boot 3, Spring Data JPA (Hibernate), & MySQL",
+   "language": "Java",
+   "stars": 1,
+   "fork": false
+  },
   "CoreSport": {
    "description": "CoreSport - AI Destekli Sporcu Gelişim Platformu",
    "language": "TypeScript",
-   "stars": 0
+   "stars": 0,
+   "fork": false
   },
-  "MPF3": {
-   "description": "My Fitness tracker website",
+  "email-writer-react": {
+   "description": null,
    "language": "JavaScript",
-   "stars": 1
+   "stars": 1,
+   "fork": false
   },
-  "Smart-Email-Writer-Assistant": {
-   "description": "This is an AI project designed to assist with writing emails.",
+  "engin-haz-r-program": {
+   "description": null,
+   "language": "HTML",
+   "stars": 0,
+   "fork": false
+  },
+  "epam-lab1-module1": {
+   "description": null,
+   "language": null,
+   "stars": 0,
+   "fork": false
+  },
+  "epam-lab3-module3": {
+   "description": null,
+   "language": null,
+   "stars": 0,
+   "fork": false
+  },
+  "epam-lab4-module4": {
+   "description": null,
+   "language": null,
+   "stars": 0,
+   "fork": false
+  },
+  "epam-lab5-module5": {
+   "description": null,
+   "language": "PowerShell",
+   "stars": 0,
+   "fork": false
+  },
+  "epam-lab6-module6": {
+   "description": null,
+   "language": "HTML",
+   "stars": 0,
+   "fork": false
+  },
+  "gender-voice-recognizer": {
+   "description": "The human audio signals you can run on the project has been subjected to FFT (Fast  Fourier Transform) analysis to explore its frequency components. ",
+   "language": null,
+   "stars": 1,
+   "fork": true
+  },
+  "InnovatEPAM-Portal": {
+   "description": null,
+   "language": "TypeScript",
+   "stars": 0,
+   "fork": false
+  },
+  "Java-": {
+   "description": null,
    "language": "Java",
-   "stars": 1
+   "stars": 1,
+   "fork": false
+  },
+  "krci-gitops": {
+   "description": null,
+   "language": null,
+   "stars": 0,
+   "fork": false
   },
   "KurumsalAIAsistan": {
    "description": null,
    "language": "Python",
-   "stars": 0
+   "stars": 0,
+   "fork": false
+  },
+  "MelikKtly": {
+   "description": null,
+   "language": "Python",
+   "stars": 0,
+   "fork": false
+  },
+  "Mini-Java-Project": {
+   "description": null,
+   "language": "Java",
+   "stars": 1,
+   "fork": false
+  },
+  "MPF3": {
+   "description": "My Fitness tracker website",
+   "language": "JavaScript",
+   "stars": 1,
+   "fork": false
+  },
+  "MyHotel": {
+   "description": null,
+   "language": "Java",
+   "stars": 1,
+   "fork": false
+  },
+  "react-agent": {
+   "description": null,
+   "language": "Python",
+   "stars": 0,
+   "fork": false
+  },
+  "Smart-Email-Writer-Assistant": {
+   "description": "This is an AI project designed to assist with writing emails. ",
+   "language": "Java",
+   "stars": 1,
+   "fork": false
+  },
+  "Spam-Agent-Project": {
+   "description": null,
+   "language": "Python",
+   "stars": 0,
+   "fork": false
+  },
+  "spring-data-jpa": {
+   "description": null,
+   "language": "Java",
+   "stars": 1,
+   "fork": false
+  },
+  "Spring-deneme2": {
+   "description": null,
+   "language": "Java",
+   "stars": 1,
+   "fork": false
+  },
+  "task-board-lab-module2": {
+   "description": null,
+   "language": null,
+   "stars": 0,
+   "fork": false
+  },
+  "userservice": {
+   "description": null,
+   "language": "Java",
+   "stars": 1,
+   "fork": false
+  },
+  "Web": {
+   "description": null,
+   "language": "CSS",
+   "stars": 1,
+   "fork": false
+  },
+  "workingdirectory": {
+   "description": null,
+   "language": "Jupyter Notebook",
+   "stars": 1,
+   "fork": false
   }
  }
 }
