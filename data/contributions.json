@@ -1,6 +1,6 @@
 {
  "user": "MelikKtly",
- "updated": "2026-11-20",
+ "updated": "2026-11-21",
  "total": 379,
  "days": [
   {
@@ -1852,6 +1852,11 @@
    "date": "2026-11-20",
    "count": 1,
    "level": 1
+  },
+  {
+   "date": "2026-11-21",
+   "count": 0,
+   "level": 0
   }
  ]
 }
