@@ -1,43 +1,8 @@
 {
  "user": "MelikKtly",
- "updated": "2026-11-21",
- "total": 379,
+ "updated": "2026-11-22",
+ "total": 391,
  "days": [
-  {
-   "date": "2025-11-16",
-   "count": 0,
-   "level": 0
-  },
-  {
-   "date": "2025-11-17",
-   "count": 0,
-   "level": 0
-  },
-  {
-   "date": "2025-11-18",
-   "count": 0,
-   "level": 0
-  },
-  {
-   "date": "2025-11-19",
-   "count": 0,
-   "level": 0
-  },
-  {
-   "date": "2025-11-20",
-   "count": 4,
-   "level": 1
-  },
-  {
-   "date": "2025-11-21",
-   "count": 0,
-   "level": 0
-  },
-  {
-   "date": "2025-11-22",
-   "count": 0,
-   "level": 0
-  },
   {
    "date": "2025-11-23",
    "count": 0,
@@ -1855,6 +1820,11 @@
   },
   {
    "date": "2026-11-21",
+   "count": 12,
+   "level": 3
+  },
+  {
+   "date": "2026-11-22",
    "count": 0,
    "level": 0
   }
